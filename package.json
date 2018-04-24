@@ -6,7 +6,7 @@
     "author": "Alexander Moiseenko",
     "license": "MIT",
     "scripts": {
-        "start": "gulp --debug",
+        "dev": "gulp --debug",
         "build": "gulp build",
         "production": "cross-env NODE_ENV=production npm-run-all clean build",
         "make-block": "babel-node make-block.js",
