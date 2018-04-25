@@ -1,0 +1,183 @@
+@import '../sprite'
+
+/**
+ * Adding some couner for the list
+ */
+
+=counter($var)
+    counter-reset: $var
+    & > li:before
+        content: counter($var) "."
+        counter-increment: $var
+
+/**
+ * Justify text in the box
+ */
+=justify
+    text-align: justify
+    line-height: 0
+    font-size: 0
+    text-justify: newspaper
+    zoom: 1
+    text-align-last: justify
+    &:after
+        display: inline-block
+        content: ''
+        width: 100%
+        height: 0
+        visibility: hidden
+        overflow: hidden
+
+/**
+ * Hidden large text
+ */
+=text-overflow
+    overflow: hidden
+    -ms-text-overflow: ellipsis
+    text-overflow: ellipsis
+    white-space: nowrap
+
+
+/**
+ * Set placeholder color
+ */
+=placeholder-color($color)
+    &:-moz-placeholder,
+    &::-moz-placeholder
+        color: $color
+        transition: color .25s ease-out
+    &::-webkit-input-placeholder
+        color: $color
+        transition: color .25s ease-out
+
+/**
+ * Make css arrows
+ */
+=arr($width, $height, $bg, $direction)
+    width: 0px
+    height: 0px
+    border-style: solid
+    @if $direction == t
+        border-width: 0 $width / 2 + px $height + px $width / 2 + px
+        border-color: transparent transparent transparent $bg
+    @if $direction == r 
+        border-width: $height / 2 + px 0 $height / 2 + px $width + px
+        border-color: transparent transparent $bg transparent
+    @if $direction == b
+        border-width: $height + px $width / 2 + px 0 $width / 2 + px
+        border-color: $bg transparent transparent transparent
+    @if $direction == l
+        border-width: $height / 2 + px $width + px $height / 2 + px 0
+        border-color: transparent $bg transparent transparent   
+    @if $direction == tl
+        border-width: $height + px $width + px 0 0
+        border-color: $bg transparent transparent transparent    
+    @if $direction == tr
+        border-width: 0 $width + px $height + px 0
+        border-color: transparent $bg transparent transparent    
+    @if $direction == br
+        border-width: 0 0 $height + px $width + px
+        border-color: transparent transparent $bg transparent    
+    @if $direction == bl
+        border-width: $height + px 0 0 $width + px
+        border-color: transparent transparent transparent $bg
+
+/**
+ * Add fonts
+ */
+=font($alias, $name)
+    @font-face
+        font-family: $alias
+        src: url("../fonts/" + $name + ".eot")
+        src: url("../fonts/" + $name + ".eot?#iefix") format("embedded-opentype"), url("../fonts/" + $name + ".woff2") format('woff2'), url("../fonts/" + $name + ".woff?ver1.0") format("woff"), url("../fonts/" + $name + ".ttf") format("truetype")
+        @content
+
+/**
+ * Clear the float on any element
+ */
+=clearfix
+    &:before,
+    &:after
+        display: block
+        content: ' '
+    &:after 
+        clear: both
+    *zoom: 1
+
+/**
+ * Fix no working `-webkit-text-size-adjust: 100%;` in Android.
+ */
+=fix-text-size-adjust()
+    background-image: linear-gradient(transparent, transparent)
+
+/**
+ * Set element size
+ */
+=size($size)
+    width: $size
+    height: $size
+
+/**
+ * Set margin on left & right
+ */
+=margin-x($margin)
+    margin-left: $margin
+    margin-right: $margin
+
+/**
+ * Set margin on top & bottom
+ */
+=margin-y($margin)
+    margin-top: $margin
+    margin-bottom: $margin
+
+/**
+ * Set pading on left & right
+ */
+=padding-x($padding)
+    padding-left: $padding
+    padding-right: $padding
+
+/**
+ * Set padding on top & bottom
+ */
+=padding-y($padding)
+    padding-top: $padding
+    padding-bottom: $padding
+
+/**
+ * Set one static retina image
+ */
+=set-img($sprite-name, $sprite-group)
+    +sprite($sprite-name)
+    +retina-sprite($sprite-group)
+
+
+=media-down($breakpoint)
+    @media screen and (max-width: $breakpoint)
+        @content
+
+=media-up($breakpoint)
+    @media screen and (min-width: $breakpoint)
+        @content
+
+=media-between($breakpoint-x, $breakpoint-y)
+    @media screen and (min-width: $breakpoint-x) and (max-width: $breakpoint-y)
+        @content
+
+/**
+ * Center alignment
+ */
+=position-center($z-index)
+    position: absolute
+    z-index: $z-index
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+=transition($property, $duration, $function, $delay)
+    transition-property: $property
+    transition-duration: $duration
+    transition-timing-function: $function
+    transition-delay: $delay
+    will-change: $property
