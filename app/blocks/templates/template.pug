@@ -1,17 +1,16 @@
 include ../../../node_modules/bemto.pug/bemto.pug
 include ../page/page
-include ../header/header
-include ../footer/footer
+
+-
+  set_bemto_settings({
+    prefix: '',
+    element: '__',
+    modifier: '--'
+  })
 
 doctype html
 html
         include ../head/head
         +page(class=pageMod ? '_' + pageMod : '')
-                .page__wrapper
-                        +header()
-                        .page__content
-                                block content
-                        +footer()
 
-        script(src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
         +scripts(['app.min.js'])
