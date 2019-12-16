@@ -1,12 +1,16 @@
 {
-    "ignore": [
-        "node_modules/**/*"
-    ],
-    "presets": [
-        "es2015",
-        "stage-0"
-    ],
-    "plugins": [
-        "transform-runtime"
-    ]
+  "presets": [
+    ["env", {
+      "useBuiltIns": "entry",
+      "corejs": 3,
+      "modules": false,
+      "exclude": ["transform-typeof-symbol"]
+    }]
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-class-properties", {
+      "loose": true
+    }],
+    ["@babel/plugin-transform-runtime"]
+  ]
 }

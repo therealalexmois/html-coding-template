@@ -1,0 +1,25 @@
+include ../../lib/bemto/bemto.pug
+include ../page/page
+include ../header/header
+include ../footer/footer
+
+-
+  set_bemto_settings({
+    prefix: '',
+    element: '__',
+    modifier: '--'
+  })
+
+doctype html
+html(lang="en")
+  include ../head/head
+  +page(class=pageMod ? '_' + pageMod : '')
+    .page__header
+      +header()
+    .page__content
+        block content
+    .page__footer
+      +footer()
+
+    block scripts
+      +scripts(['app.js'])

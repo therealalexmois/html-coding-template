@@ -1,0 +1,8 @@
+/* @define-mixin fonts $alias, $name {
+  @font-face {
+    font-family: $alias;
+    src: url("../../fonts/" + $name + ".eot");
+    src: url("../../fonts/" + $name + ".eot?#iefix") format("embedded-opentype"), url("../../fonts/" + $name + ".woff2") format('woff2'), url("../../fonts/" + $name + ".woff?ver1.0") format("woff"), url("../../fonts/" + $name + ".ttf") format("truetype"), url("../../fonts/" + $name + ".svg#" + $name + "") format("svg");
+    @mixin-content;
+  }
+} */

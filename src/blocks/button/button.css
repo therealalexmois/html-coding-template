@@ -1,0 +1,39 @@
+.button {
+  position: relative;
+  padding-top: calc(0.5em - 0.0625em);
+  padding-right: calc(0.75em - 0.0625em);
+  padding-left: calc(0.75em - 0.0625em);
+  padding-bottom: calc(0.5em - 0.0625em);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: europa, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: top;
+  white-space: nowrap;
+  text-decoration: none;
+  appearance: none;
+  color: #363636;
+  background-color: white;
+  border-width: 0.125em;
+  border-style: solid;
+  border-color: #dbdbdb;
+  border-radius: 4px;
+  box-shadow: none;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-property: color, background-color, border-color;
+  cursor: pointer;
+  user-select: none;
+
+  &[disabled] {
+    opacity: 0.5;
+    background-color: white;
+    border-color: #dbdbdb;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
