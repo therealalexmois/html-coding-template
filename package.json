@@ -1,6 +1,6 @@
 {
-  "name": "oldmenonwheels",
-  "description": "Old men on wheels frontend",
+  "name": "create-html-template",
+  "description": "Html template",
   "version": "1.0.0",
   "author": "Aleksander Moiseenko <oksimilk.developer@gmail.com>",
   "main": "build/index.html",
